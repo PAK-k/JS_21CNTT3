@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng nhập</title>
+    <script>
+    function checkUsername() {
+        var username = document.getElementById('username').value;
+        var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            
+        if (regex.test(username)) {
+            document.getElementById('error').textContent = '';
+            return true;
+        } else {
+            document.getElementById('error').textContent = 'Tên không hợp lệ! Vui lòng nhập lại.';
+            return false;
+        }
+    }
+
+    function checkPassword() {
+        var password = document.getElementById('password').value;
+        var regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; 
+            
+        if (regex.test(password)) {
+            document.getElementById('error').textContent = '';
+            return true;
+        } else {
+            document.getElementById('error').textContent = 'password không hợp lệ! Vui lòng nhập lại.';
+            return false;
+        }
+    }
+
+    function submitForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (checkUsername()==true && checkPassword()==true) {
+            alert('Đăng nhập thành công!');
+        } else {
+            alert('Không hợp lệ!');
+        }
+    }
+    </script>
+</head>
+<body>
+    <h2>Đăng nhập</h2>
+    <p id="error"></p>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" onkeyup="checkUsername()" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" onkeyup="checkPassword()" />
+
+        <button type="button" onclick="submitForm()">Đăng nhập</button>
+    </form>
+</body>
+</html>
