@@ -73,3 +73,4 @@ if(regex1.test(password)==true) {
 
 //bài 5 + bài 6 bên file index.html
 
+
