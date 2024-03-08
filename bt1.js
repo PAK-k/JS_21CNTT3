@@ -72,5 +72,7 @@ if(regex1.test(password)==true) {
     }
 
 //bài 5 + bài 6 bên file index.html
-
-
+//// CÁCH ĐƯA CODE LÊN GIT BẰNG TERMINAL
+// B1: git add .
+// B2: git commit -m "update"
+// B3: git push -u origin

@@ -64,7 +64,7 @@ function FindKeyLong(name) {
     console.log(max);
 }
 
-FindKeyLong('Pham anh kiet')
+FindKeyLong('Pham anh kiet1')
 
 
 //////bai3
