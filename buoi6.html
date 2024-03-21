@@ -1,0 +1,173 @@
+<!-- <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JavaScript</title>
+        <script type="text/javascript">
+            function printValue() {
+            var name = document.form1.name.value;
+            alert("Welcome: " + name);
+        }
+
+        function GioiThieuBanThan(){
+            var name = "Kiệt";
+            var year = 2003;
+            document.write("Tôi là " + name + " sinh năm " + year);
+        }
+
+        GioiThieuBanThan(); 
+        </script>
+    </head>
+
+    <body>
+        <form name="form1">
+            Nhập tên: <input type="text" name="name" /> 
+            <input type="button" onclick="printValue()" value="OK" />
+        </form>
+    </body>
+</html> -->
+<!-- 1 -->
+<!-- <html>
+    <body>
+        <script type="text/javascript">
+            document.body.style.backgroundColor = 'blue';
+        </script>
+    </body>
+</html> -->
+<!-- 2 -->
+<!-- <html>
+    <body>
+        <input type="text" name="Hello" value="Hallo1" id="e1">
+        <input type="text" name="Hello" value="Hallo2" id="e2">
+        <input type="text" name="Hello" value="Hallo3" id="e3">
+
+        <script type="text/javascript">
+            var inputs = document.getElementsByName("hello");
+            for(var i=0; i<inputs.length; i++)
+                inputs[i].value = "Olla" + i;
+
+            document.getElementById("e1").value="Toll!";          
+            document.getElementById("e2").style.color="red";          
+        </script>
+    </body>
+</html> -->
+<!-- 3 -->
+<!-- <html>
+    <body>
+        <p id="p1">Hello!</p>
+        <script type="text/javascript">
+            document.getElementById("p1").innerHTML="Pham Anh Kiet";
+        </script>
+    </body>
+</html> -->
+<!-- 4 -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+<h1>BÀI TẬP 4</h1>
+<h2>ĐƠN HÀNG</h2>
+
+<div id="myList">
+    <table>
+        <tr>
+          <td></td>
+          <td>Mã hàng</td>
+          <td>Tên hàng</td>
+          <td>số lượng</td>
+        </tr>
+        <tr>
+          <td>Sản phẩm 1</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td><button onclick="myFunction()">+</button></td>
+        </tr>
+      </table>
+</div>
+
+<script>
+function myFunction() {
+    const table = document.getElementById("myList");
+    const row = document.createElement("tr");
+
+    const productName = document.createTextNode("Sản phẩm ");
+    const productCodeInput = document.createElement("td");
+    const productNameInput = document.createElement("td");
+    const productQuantityInput = document.createElement("td");
+    const addButtonCell = document.createElement("td");
+    const addButton = document.createElement("button");
+    addButton.innerText = "+";
+
+    productCodeInput.appendChild(document.createElement("input"));
+    productNameInput.appendChild(document.createElement("input"));
+    productQuantityInput.appendChild(document.createElement("input"));
+    addButtonCell.appendChild(addButton);
+
+    row.appendChild(productName);
+    row.appendChild(productCodeInput);
+    row.appendChild(productNameInput);
+    row.appendChild(productQuantityInput);
+    row.appendChild(addButtonCell);
+
+    table.appendChild(row);
+}
+</script>
+
+</body>
+</html> -->  
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Danh sách sản phẩm</h1>
+        <table id=".productTable">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <tr id=".sp1">
+                <td>SP1</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr id=".sp2">
+                <td>SP2</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+    </div>
+
+    <button id="btn+" onclick="increaseRow()">+</button>
+    <button id="btn-" onclick="removeRow()">-</button>
+</body>
+
+<script>
+    max = 2;
+    function increaseRow() {
+        max++;
+        var row = document.getElementById(".productTable").insertRow();
+        row.id = ".sp" + max;
+        row.innerHTML = `<td>SP${max}</td> 
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>`;
+    }
+
+    function removeRow() {
+        document.getElementById(".sp" + max).remove();
+        max--;
+    }
+
+</script>
+
+</html>

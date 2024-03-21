@@ -60,9 +60,9 @@
 
 // // BT VẺ LEXICAL
 // function fOuter() {
-//     var x = "Hello";
+//     var  x = "Hello";
 //     function fInner() {
-//         x = "World";
+//          x = "World";
 //     }
 //     fInner();
 //     return x;
@@ -138,108 +138,87 @@
 
 // console.log(ad3);
 
-// // CHUYỂN ĐỔI CODE
-// function Car() {}
+// CHUYỂN ĐỔI CODE
+// class Car {
+//   constructor() {
+//     this.speed = 0;
+//   }
 
-// Car.prototype = {
-//     constructor: Car,
-//     speed: 0,
-//     printSpeed: function() {
-//         document.write(this.speed+'<br/>');
-//     }
-// };
+//   printSpeed() {
+//     console.log(this.speed);
+//   }
+// }
 
 // var car = new Car();
 // car.instanceMethod = function() {
-//     document.write('an instance method <br/>');
+//   console.log('an instance method');
 // };
 // car.speed = 50;
 // car.printSpeed();
 // car.instanceMethod();
 
-// function Cabriolet() {}
-
-// Cabriolet.prototype = new Car();
-// Cabriolet.prototype.topState = 'closed';
-// Cabriolet.prototype.openTop = function() {
-//     this.topState = 'opened';
-//     document.write('Top:' + this.topState + '<br/>');
-// };
-// Cabriolet.prototype.closeTop = function() {
+// class Cabriolet extends Car {
+//   constructor() {
+//     super();
 //     this.topState = 'closed';
-//     document.write('Top:' + this.topState + '<br/>');
-// };
+//   }
 
-// var Cabriolet = new Cabriolet();
-// Cabriolet.speed = 120;
-// Cabriolet.printSpeed();
-// Cabriolet.openTop();
-// Cabriolet.closeTop();
+//   openTop() {
+//     this.topState = 'opened';
+//     console.log('Top: ' + this.topState);
+//   }
 
-// function TeslaCabriolet() {}
+//   closeTop() {
+//     this.topState = 'closed';
+//     console.log('Top: ' + this.topState);
+//   }
+// }
 
-// TeslaCabriolet.prototype = new Cabriolet();
-// TeslaCabriolet.prototype.name = 'Tesla http://www.teslamotors.com/roadster';
-// TeslaCabriolet.prototype.sayName = function() {
-//     document.write(this.name+'<br/>');
-// };
+// var cabriolet = new Cabriolet();
+// cabriolet.speed = 120;
+// cabriolet.printSpeed();
+// cabriolet.openTop();
+// cabriolet.closeTop();
 
-// var Tesla = new TeslaCabriolet();
-// Tesla.openTop();
-// Tesla.sayName();
+// class TeslaCabriolet extends Cabriolet {
+//   constructor() {
+//     super();
+//     this.name = 'Tesla http://www.teslamotors.com/roadster';
+//   }
 
-class Car {
-    constructor() {
-      this.speed = 0;
-    }
-  
-    printSpeed() {
-      console.log(this.speed);
-    }
-  }
-  
-  var car = new Car();
-  car.instanceMethod = function() {
-    console.log('an instance method');
-  };
-  car.speed = 50;
-  car.printSpeed();
-  car.instanceMethod();
-  
-  class Cabriolet extends Car {
-    constructor() {
-      super();
-      this.topState = 'closed';
-    }
-  
-    openTop() {
-      this.topState = 'opened';
-      console.log('Top: ' + this.topState);
-    }
-  
-    closeTop() {
-      this.topState = 'closed';
-      console.log('Top: ' + this.topState);
-    }
-  }
-  
-  var cabriolet = new Cabriolet();
-  cabriolet.speed = 120;
-  cabriolet.printSpeed();
-  cabriolet.openTop();
-  cabriolet.closeTop();
-  
-  class TeslaCabriolet extends Cabriolet {
-    constructor() {
-      super();
-      this.name = 'Tesla http://www.teslamotors.com/roadster';
-    }
-  
-    sayName() {
-      console.log(this.name);
-    }
-  }
-  
-  var tesla = new TeslaCabriolet();
-  tesla.openTop();
-  tesla.sayName();
+//   sayName() {
+//     console.log(this.name);
+//   }
+// }
+
+// var tesla = new TeslaCabriolet();
+// tesla.openTop();
+// tesla.sayName();
+
+// // phá 1
+// function square (width) {
+//   var squareObject = {};
+//   squareObject.getArea = function() { 
+//     if(width>0) return width*width;
+//   }
+//   return squareObject;
+// }
+//   var myBox = square (5);
+//   console.log(myBox.getArea());
+//   console.log(myBox.width);
+
+// // phá 2
+// function cube(width) {
+//   var cubeObject = square (width);
+//   var squareArea = cubeObject.getArea;
+//   cubeObject.getVolume = function () {
+//     if(width>0) return squareArea () * width;
+//   }
+//   cubeObject.getArea = function () { 
+//     if(width>0) return squareArea () * 6;
+//   }
+//   return cubeObject;
+// }  
+//   var myCube = cube (5); 
+//   console.log(myCube.getVolume());
+//   console.log(myCube.getArea());
