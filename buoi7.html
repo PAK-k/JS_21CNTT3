@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">DOM Example</title>
+    <script>
+        function domloaded() {
+            console.log('Dom is loaded');
+            var div1 = document.getElementById('container1');
+            div1.innerHTML += '<p>Paragraph 3 the URL is '+ document.URL +'</p>';
+            var title = window.document.getElementById('title');
+            title.innerText += 'Cool!';
+            var divs = document.body.getElementsByTagName('div');
+            for (var i in divs) {
+                divs[i].innerHTML += '<p>Another Paragraph</p>';
+            }
+        }
+    </script>
+</head>
+<body onload="domloaded();">
+    <div id="container1">
+        <h1>Heading 1</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </div>
+    <div id="container1">
+        <h1>Heading 2</h1>
+        <p>Paragraph</p>
+    </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">DOM Example</title>
+    <script>
+        function evaluateForm() {
+            var input = document.getElementById('info');
+            var result = document.getElementById('result-form');
+            if(input.value == 42){
+                result.innerHTML = 'Correct Answer';
+            } else {
+                result.innerHTML = 'Wrong Answer';
+            }
+        }
+        function evaluateClick() {
+            evaluateForm();
+            var result = document.getElementById('result-form');
+            result.innerHTML = 'You submitted the: ' + result.innerHTML;
+        }
+        function hint() {
+            var input = document.getElementById('info');
+            input.value = 'Guess what the magic number is...'
+        }
+    </script>
+</head>
+<body>
+    <div id="input-form">
+        <label for="info">Enter information here:</label>
+        <input name="info" id="info" type="text" onkeyup="evaluateForm();"/>
+        <button onclick="evaluateClick();">Submit</button>
+        <button onclick="hint();">Hint</button>
+    </div>
+    <div id="result-form"></div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Create Div Element Dynamically</title>
+
+    <style type="text/css">
+        .dynamicDiv {width: 200px; height: 100px; border: solid 1px #c0c0c0; background-color: #e1e1e1; font-size: 11px; font-family: verdana; color: #000; padding: 5px; }
+    </style>
+    <script type="text/Javascript" language="Javascript">
+        function createDiv() {
+            var divTag = document.createElement("div");
+            divTag.id = "div1";
+            divTag.setAttribute("align","center");
+            divTag.style.margin = "0px auto";
+            divTag.className = "dynamicDiv";
+            divTag.innerHTML = "this HTML Div tag created using Javascript DOM dynamically";
+            document.body.appendChild(divTag);
+        }
+    </script>
+</head>
+<body>
+    <p align="center">
+    <b>Click this button to create div element dynamically:</b>
+    <input id="btn1" type="button" value="create div" onclick="createDiv();">
+    </p>
+</body>
+</html>
+
+<html>
+    <body>
+        <input type="button"
+        onClick="document.body.bgColor='grey';"
+        value="Change background color"/>
+    </body>
+</html>
+
+<html>
+    <head>
+        <script type="text/javascript">
+            function ChangeStyle() {
+                document.getElementById('p1').style.color="orange";
+                document.getElementById('p1').style.fontFamily="Arial";
+            }
+        </script>
+    </head>
+    <body>
+        <p id="p1">Hello world!</p>
+        <input type="button" onclick="ChangeStyle();" value="ChangeStyle">
+    </body>
+</html>
+
+
+<html>
+<head>
+    <title>Countdown Timer</title>
+    <style type="text/css">
+        .pixel {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 2px;
+            height: 2px;
+            background-color: red;
+        }
+        #countdown {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">10</div>
+    <script type="text/javascript">
+        var timeLeft = 10;
+        var countdownInterval;
+
+        function countdown() {
+            if (timeLeft >= 0) {
+                document.getElementById("countdown").innerHTML = timeLeft;
+
+                if (timeLeft === 0) {
+                    document.getElementById("countdown").innerHTML = "Hết giờ!";
+                }
+
+                timeLeft--;
+            } else {
+                clearInterval(countdownInterval);
+            }
+        }
+
+        function startCountdown() {
+            countdown();
+            countdownInterval = setInterval(countdown, 1000);
+        }
+
+        function drawPixel(x, y) {
+            var newdiv = document.createElement("div");
+            newdiv.className = "pixel";
+            newdiv.style.top = y + "px"; 
+            newdiv.style.left = x + "px"; 
+            document.body.appendChild(newdiv);
+        }
+
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>
